@@ -10,7 +10,7 @@
 require 'csv'
 
 # db/csvフォルダ中のデータファイル
-data_files = %w()
+data_files = %w(24.csv 25.csv 26.csv)
 
 data_files.each do |data_file|
   # 1行目はヘッダーなので無視
@@ -20,6 +20,11 @@ data_files.each do |data_file|
     # X年X月をXXXX-XX-XX形式に
     row[5].match(/([0-9]+)月([0-9]+)日/)
     observed_at = sprintf("%04d-%02d-%02d", heisei_year.to_i + 1989, $1, $2)
+    if row[4]
+      image_file_name = "#{heisei_year}/#{row[4]}"
+    else
+      image_file_name = ""
+    end
 
     Note.create(
       student_name: row[3],
@@ -29,7 +34,7 @@ data_files.each do |data_file|
       event_name: "平成#{heisei_year}年度尾駁沼観察",
       title: row[9],
       body: "#{row[10]}#{row[11]}",
-      image_file_name: "#{heisei_year}/#{row[4]}",
+      image_file_name: image_file_name,
       observed_at: observed_at,
       weather: row[6],
       lat: 40.965499 + Random.rand(0.01) - 0.005,
