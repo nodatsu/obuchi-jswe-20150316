@@ -10,7 +10,7 @@
 require 'csv'
 
 # db/csvフォルダ中のデータファイル
-data_files = %w(24.csv 25.csv 26.csv)
+data_files = %w(26.csv)
 
 data_files.each do |data_file|
   # 1行目はヘッダーなので無視
