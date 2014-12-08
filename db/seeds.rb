@@ -37,8 +37,8 @@ data_files.each do |data_file|
       image_file_name: image_file_name,
       observed_at: observed_at,
       weather: row[6],
-      lat: 40.965499 + Random.rand(0.01) - 0.005,
-      lng: 141.356479 + Random.rand(0.01) - 0.005
+      lat: row[7],
+      lng: row[8]
     )
   end
 end
