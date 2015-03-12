@@ -24,7 +24,14 @@ data_files.each do |data_file|
       image_file_name = "#{heisei_year}/#{row[4]}"
     else
       image_file_name = ""
-    end
+    end 
+    if row[12]
+      radarchart_file_name = "#{heisei_year}/#{row[12]}"
+    else
+      radarchart_file_name = ""
+    end 
+
+  
 
     Note.create(
       student_name: row[3],
@@ -35,6 +42,7 @@ data_files.each do |data_file|
       title: row[9],
       body: "#{row[10]}#{row[11]}",
       image_file_name: image_file_name,
+      radarchart_file_name: radarchart_file_name,
       observed_at: observed_at,
       weather: row[6],
       lat: row[7],

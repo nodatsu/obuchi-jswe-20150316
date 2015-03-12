@@ -98,8 +98,15 @@ class NotesController < ApplicationController
       end
     end
 
+    def set_note
+      @note = Note.find(params[:id])
+      if @note.radarchart_file_name.length == 0
+        @note.radarchart_file_name = 'no_image.png'
+      end
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.require(:note).permit(:student_name, :student_number, :student_grade, :student_class, :title, :body, :observed_at, :event_name, :lat, :lng, :image_file_name, :weather)
+      params.require(:note).permit(:student_name, :student_number, :student_grade, :student_class, :title, :body, :observed_at, :event_name, :lat, :lng, :image_file_name, :weather, :radarchart_file_name)
     end
 end

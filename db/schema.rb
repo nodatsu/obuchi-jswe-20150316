@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020042407) do
+ActiveRecord::Schema.define(version: 20150223023157) do
 
   create_table "modes", force: true do |t|
     t.string   "name"
@@ -19,21 +19,7 @@ ActiveRecord::Schema.define(version: 20141020042407) do
     t.datetime "updated_at"
   end
 
-  create_table "notes", force: true do |t|
-    t.string   "student_name"
-    t.string   "student_number"
-    t.integer  "student_grade"
-    t.integer  "student_class"
-    t.string   "title"
-    t.text     "body"
-    t.string   "image_file_name"
-    t.datetime "observed_at"
-    t.string   "weather"
-    t.string   "event_name"
-    t.float    "lat"
-    t.float    "lng"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+# Could not dump table "notes" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
 end

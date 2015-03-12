@@ -84,6 +84,7 @@ MAPRAMBLE.addMarker = function (note) {
             if (note_tmp.image_file_name.length === 0) {
                 note_tmp.image_file_name = 'no_image.png';
             }
+            console.log(note_tmp.image_file_name);
             $("#thumb").append('<li><a data-remote="true" href="/notes/' + note_tmp.id + '"><img src="/images/' + note_tmp.image_file_name + '" alt="" height="125"></a></li>');
             carouObj = {};
             // carouObj.auto = false;
@@ -207,6 +208,7 @@ $(document).ready(function () {
                     note.image_file_name = 'no_image.png';
                 }
                 if (note.image_file_name !== null) {
+                    
                     if (MAPRAMBLE.mode === 'edit') {
                         $("#thumb").append('<li><a data-remote="true" href="/notes/' + note.id + '"><img src="/images/' + note.image_file_name + '" alt="" height="125"></a></li>');
                     } else {

@@ -62,6 +62,14 @@
       <%= f.text_field :image_file_name %>
     </div>
 
+    <div class="field">
+      <% if @note.radarchart_file_name %>
+      <%= image_tag @note.radarchart_file_name, width: 350 %><br>
+      <% end %>
+      <%= f.label :radarchart_file_name %>:<br>
+      <%= f.text_field :radarchart_file_name %>
+    </div>
+
     <div calss="field">
       <%= f.label :observed_at %>:<br>
       <%= f.datetime_select :observed_at %>

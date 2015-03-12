@@ -24,6 +24,9 @@
   <% if note.image_file_name %>
     <p style="margin-top: 10px;"><%= image_tag note.image_file_name, width: 350 %></p>
   <% end %>
+  <% if note.radarchart_file_name %>
+    <p style="margin-top: 10px;"><%= image_tag note.radarchart_file_name, width: 350 %></p>
+  <% end %>
   <%= I18n.l note.observed_at %>
   <%= note.weather %>
   <% if edit_mode? %>
